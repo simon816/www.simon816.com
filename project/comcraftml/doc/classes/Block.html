@@ -1,0 +1,1900 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Block - Comcraft Mod Loader API</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            
+                <h1><img src="../assets/css/logo.png" title="Comcraft Mod Loader API"></h1>
+            
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 0.6</em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+    <h2 class="off-left">APIs</h2>
+    <div id="api-tabview" class="tabview">
+        <ul class="tabs">
+            <li><a href="#api-classes">Classes</a></li>
+            <li><a href="#api-modules">Modules</a></li>
+        </ul>
+
+        <div id="api-tabview-filter">
+            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+        </div>
+
+        <div id="api-tabview-panel">
+            <ul id="api-classes" class="apis classes">
+            
+                <li><a href="../classes/__globals__.html">__globals__</a></li>
+            
+                <li><a href="../classes/AxisAlignedBB.html">AxisAlignedBB</a></li>
+            
+                <li><a href="../classes/Background.html">Background</a></li>
+            
+                <li><a href="../classes/Block.html">Block</a></li>
+            
+                <li><a href="../classes/BlockProperties.html">BlockProperties</a></li>
+            
+                <li><a href="../classes/ChunkGenerator.html">ChunkGenerator</a></li>
+            
+                <li><a href="../classes/ChunkGeneratorFlat.html">ChunkGeneratorFlat</a></li>
+            
+                <li><a href="../classes/ChunkGeneratorNormal.html">ChunkGeneratorNormal</a></li>
+            
+                <li><a href="../classes/Comcraft.html">Comcraft</a></li>
+            
+                <li><a href="../classes/console.html">console</a></li>
+            
+                <li><a href="../classes/EntityPlayer.html">EntityPlayer</a></li>
+            
+                <li><a href="../classes/EventHandler.html">EventHandler</a></li>
+            
+                <li><a href="../classes/GuiButton.html">GuiButton</a></li>
+            
+                <li><a href="../classes/GuiInventory.html">GuiInventory</a></li>
+            
+                <li><a href="../classes/GuiMainMenu.html">GuiMainMenu</a></li>
+            
+                <li><a href="../classes/GuiNewWorld.html">GuiNewWorld</a></li>
+            
+                <li><a href="../classes/GuiOptions.html">GuiOptions</a></li>
+            
+                <li><a href="../classes/GuiOptionsMore.html">GuiOptionsMore</a></li>
+            
+                <li><a href="../classes/GuiQuickMenu.html">GuiQuickMenu</a></li>
+            
+                <li><a href="../classes/GuiScreen.html">GuiScreen</a></li>
+            
+                <li><a href="../classes/InvItemStack.html">InvItemStack</a></li>
+            
+                <li><a href="../classes/Model.html">Model</a></li>
+            
+                <li><a href="../classes/Transform.html">Transform</a></li>
+            
+                <li><a href="../classes/Vec3D.html">Vec3D</a></li>
+            
+                <li><a href="../classes/World.html">World</a></li>
+            
+            </ul>
+
+            <ul id="api-modules" class="apis modules">
+            
+                <li><a href="../modules/Comcraft Mod Loader.html">Comcraft Mod Loader</a></li>
+            
+                <li><a href="../modules/Event Handler Items.html">Event Handler Items</a></li>
+            
+                <li><a href="../modules/Gui Screens.html">Gui Screens</a></li>
+            
+                <li><a href="../modules/Native Types.html">Native Types</a></li>
+            
+            </ul>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+        Show:
+        <label for="api-show-inherited">
+            <input type="checkbox" id="api-show-inherited" checked>
+            Inherited
+        </label>
+
+        <label for="api-show-protected">
+            <input type="checkbox" id="api-show-protected">
+            Protected
+        </label>
+
+        <label for="api-show-private">
+            <input type="checkbox" id="api-show-private">
+            Private
+        </label>
+        <label for="api-show-deprecated">
+            <input type="checkbox" id="api-show-deprecated">
+            Deprecated
+        </label>
+
+    </div>
+
+
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <h1>Block Class</h1>
+<div class="box meta">
+    
+
+    
+
+    
+
+    
+        
+            Module: <a href="../modules/Comcraft Mod Loader.html">Comcraft Mod Loader</a>
+        
+    
+
+    
+</div>
+
+
+
+<div class="box intro">
+    
+</div>
+
+
+    <div class="constructor">
+        <h2>Constructor</h2>
+        <div id="method_Block" class="method item">
+    <h3 class="name"><code>Block</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>blockID</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code class="optional">[textures=[]</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code class="optional">[properties=null]</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+            
+        
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">blockID</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Initialise a block with the given ID</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name optional">[textures=[]</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array" class="crosslink external" target="_blank">Array</a></span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Either a single texture index or an array of integers
+               specifying the textures used.</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name optional">[properties=null]</code>
+                        <span class="type"><a href="../classes/BlockProperties.html" class="crosslink">BlockProperties</a></span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Initial properties for the block. If specified, the
+               block will load these properties.</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+    </div>
+
+
+<div id="classdocs" class="tabview">
+    <ul class="api-class-tabs">
+        <li class="api-class-tab index"><a href="#index">Index</a></li>
+
+        
+        
+            <li class="api-class-tab properties"><a href="#properties">Properties</a></li>
+        
+        
+        
+    </ul>
+
+    <div>
+        <div id="index" class="api-class-tabpanel index">
+            <h2 class="off-left">Item Index</h2>
+
+            
+
+            
+                <div class="index-section properties">
+                    <h3>Properties</h3>
+
+                    <ul class="index-list properties">
+                        
+                            <li class="index-item property">
+                                <a href="#property_blockActivated">blockActivated</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property">
+                                <a href="#property_blockDestroyingSound">blockDestroyingSound</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property">
+                                <a href="#property_blockPlacingSound">blockPlacingSound</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property">
+                                <a href="#property_canBePieced">canBePieced</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property">
+                                <a href="#property_canBePiecedVertically">canBePiecedVertically</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property">
+                                <a href="#property_canPlaceBlockAt">canPlaceBlockAt</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property">
+                                <a href="#property_canPlaceBlockOnSide">canPlaceBlockOnSide</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property">
+                                <a href="#property_collidesWithPlayer">collidesWithPlayer</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property">
+                                <a href="#property_doesBlockDestroyGrass">doesBlockDestroyGrass</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property">
+                                <a href="#property_getBlockIndexBuffer">getBlockIndexBuffer</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property">
+                                <a href="#property_getBlockModel">getBlockModel</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property">
+                                <a href="#property_getBlockTexture">getBlockTexture</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property">
+                                <a href="#property_getBlockTransform">getBlockTransform</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property">
+                                <a href="#property_getBlockVertexBufferPieced">getBlockVertexBufferPieced</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property">
+                                <a href="#property_getBlockVertexBufferSided">getBlockVertexBufferSided</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property">
+                                <a href="#property_getCollisionBoundingBoxFromPool">getCollisionBoundingBoxFromPool</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property">
+                                <a href="#property_IdDropped">IdDropped</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property">
+                                <a href="#property_isNormal">isNormal</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property">
+                                <a href="#property_isReplaceableBlock">isReplaceableBlock</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property">
+                                <a href="#property_isUpdatableBlock">isUpdatableBlock</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property">
+                                <a href="#property_onBlockAdded">onBlockAdded</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property">
+                                <a href="#property_onBlockDestroyedByPlayer">onBlockDestroyedByPlayer</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property">
+                                <a href="#property_onBlockPlaced">onBlockPlaced</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property">
+                                <a href="#property_onBlockPlacedBy">onBlockPlacedBy</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property">
+                                <a href="#property_onBlockRemoval">onBlockRemoval</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property">
+                                <a href="#property_onNeighborBlockChange">onNeighborBlockChange</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property">
+                                <a href="#property_RenderType">RenderType</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property">
+                                <a href="#property_shouldSideBeRendered">shouldSideBeRendered</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property">
+                                <a href="#property_tickBlock">tickBlock</a>
+
+                                
+                                
+                            </li>
+                        
+                    </ul>
+                </div>
+            
+
+            
+
+            
+        </div>
+
+        
+
+        
+            <div id="properties" class="api-class-tabpanel">
+                <h2 class="off-left">Properties</h2>
+
+                
+                    <div id="property_blockActivated" class="property item">
+    <h3 class="name"><code>blockActivated</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+            
+        
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p><code><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a> blockActivated(<a href="../classes/World.html" class="crosslink">World</a> world, <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> x, <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> y, <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> z, <a href="../classes/EntityPlayer.html" class="crosslink">EntityPlayer</a> entityplayer, <a href="../classes/InvItemStack.html" class="crosslink">InvItemStack</a> itemStack)</code></p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> [See Example Below]</p>
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <p> <code>blockActivated: function(world, x, y, z, entityplayer, itemStack) { return false }</code></p>
+
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="property_blockDestroyingSound" class="property item">
+    <h3 class="name"><code>blockDestroyingSound</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+            
+        
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>URI of the sound file to play when destroying this block (Currently there is no implementation of
+this)</p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> &quot;/sound/block_placed.wav&quot;</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_blockPlacingSound" class="property item">
+    <h3 class="name"><code>blockPlacingSound</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+            
+        
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>URI of the sound file to play when placing this block (Currently there is no implementation of
+this)</p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> &quot;/sound/block_placed.wav&quot;</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_canBePieced" class="property item">
+    <h3 class="name"><code>canBePieced</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+            
+        
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Don&#39;t know what this property does. See
+<a href="https://github.com/simon816/ComcraftModLoader/blob/master/src/net/comcraft/src/RenderChunkPieces.java">RenderChunkPieces.java</a></p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> true</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_canBePiecedVertically" class="property item">
+    <h3 class="name"><code>canBePiecedVertically</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+            
+        
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Don&#39;t know what this property does. See
+<a href="https://github.com/simon816/ComcraftModLoader/blob/master/src/net/comcraft/src/RenderChunkPieces.java">RenderChunkPieces.java</a></p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> true</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_canPlaceBlockAt" class="property item">
+    <h3 class="name"><code>canPlaceBlockAt</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+            
+        
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p><code><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a> canPlaceBlockAt(<a href="../classes/World.html" class="crosslink">World</a> world, <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> x, <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> y, <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> z)</code></p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> [See Example Below]</p>
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <p> <code>canPlaceBlockAt: function(world, x, y, z) { i = <a href="../classes/World.html" class="crosslink">World</a>.<a href="../classes/World.html#method_getBlockID" class="crosslink">getBlockID</a>(x, y, z) return i == 0 ||
+         <a href="../classes/Block.html" class="crosslink">Block</a>.blocksList[i].isReplaceableBlock() }</code></p>
+
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="property_canPlaceBlockOnSide" class="property item">
+    <h3 class="name"><code>canPlaceBlockOnSide</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+            
+        
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p><code><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a> canPlaceBlockOnSide(<a href="../classes/World.html" class="crosslink">World</a> world, <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> x, <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> y, <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> z, <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> side)</code></p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> [See Example Below]</p>
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <p> <code>canPlaceBlockOnSide: function(world, x, y, z, side) { return <a href="../classes/BlockProperties.html" class="crosslink">this</a>.BlockProperties/canPlaceBlockAt:property(world, x, y,
+         z) }</code></p>
+
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="property_collidesWithPlayer" class="property item">
+    <h3 class="name"><code>collidesWithPlayer</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+            
+        
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>True if the player cannot walk through this block</p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> true</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_doesBlockDestroyGrass" class="property item">
+    <h3 class="name"><code>doesBlockDestroyGrass</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+            
+        
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Will grass de-spawn and turn to dirt after some time</p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> true</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_getBlockIndexBuffer" class="property item">
+    <h3 class="name"><code>getBlockIndexBuffer</code></h3>
+    <span class="type">IndexBuffer</span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+            
+        
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Set the IndexBuffer for this block See <a href="../classes/Model.html" class="crosslink">Model</a> for more</p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> Model.PieceBlock[0]</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_getBlockModel" class="property item">
+    <h3 class="name"><code>getBlockModel</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+            
+        
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p><code>Node getBlockModel(<a href="../classes/World.html" class="crosslink">World</a> world, <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> x, <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> y, <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> z)</code></p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> [See Example Below]</p>
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <p> <code>getBlockModel: function(world, x, y, z) { return null }</code></p>
+
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="property_getBlockTexture" class="property item">
+    <h3 class="name"><code>getBlockTexture</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+            
+        
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>A function that returns the texture value of the block. <code><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> getBlockTexture(<a href="../classes/World.html" class="crosslink">World</a> world,
+<a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> x, <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> y,
+<a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> z, <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> side)</code></p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> [See Example Below]</p>
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <p> <code>getBlockTexture: function(world, x, y, z, side) { return <a href="../classes/BlockProperties.html" class="crosslink">this</a>.BlockProperties/textures:property[0] }</code></p>
+
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="property_getBlockTransform" class="property item">
+    <h3 class="name"><code>getBlockTransform</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+            
+        
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Set this function to override the default transform function. The function is called with the
+following parameters: <code><a href="../classes/Transform.html" class="crosslink">Transform</a>
+getBlockTransform(<a href="../classes/World.html" class="crosslink">World</a> world, <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> x, <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> y, <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> z, <a href="../classes/Transform.html" class="crosslink">Transform</a> transform,
+<a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> side)</code></p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> [See Example Below]</p>
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <p> <code>getBlockTransform: function(world, x, y, z, transform, side) { return transform; }</code></p>
+
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="property_getBlockVertexBufferPieced" class="property item">
+    <h3 class="name"><code>getBlockVertexBufferPieced</code></h3>
+    <span class="type">VertexBuffer[][][][]</span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+            
+        
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Set the VertexBuffer for this block See <a href="../classes/Model.html" class="crosslink">Model</a> for more</p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> Model.PieceBlock[1]</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_getBlockVertexBufferSided" class="property item">
+    <h3 class="name"><code>getBlockVertexBufferSided</code></h3>
+    <span class="type">VertexBuffer[]</span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+            
+        
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Set the Side Vertex for this block See <a href="../classes/Model.html" class="crosslink">Model</a> for more</p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> Model.PieceBlock[1][0][0][0]</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_getCollisionBoundingBoxFromPool" class="property item">
+    <h3 class="name"><code>getCollisionBoundingBoxFromPool</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+            
+        
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p><code><a href="../classes/AxisAlignedBB.html" class="crosslink">AxisAlignedBB</a>
+getCollisionBoundingBoxFromPool(<a href="../classes/World.html" class="crosslink">World</a> world, <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> x, <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> y, <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> z)</code></p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> [See Example Below]</p>
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <p> <code>getCollisionBoundingBoxFromPool: function(world, x, y, z) { return <a href="../classes/AxisAlignedBB.html" class="crosslink">AxisAlignedBB</a>(x, y, z, x + 1, y + 1, z + 1) }</code></p>
+
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="property_IdDropped" class="property item">
+    <h3 class="name"><code>IdDropped</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+            
+        
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>The ID of the item when dropped (Currently you cannot drop items in Comcraft)</p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> blockID</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_isNormal" class="property item">
+    <h3 class="name"><code>isNormal</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+            
+        
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Is this a standard opaque block</p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> true</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_isReplaceableBlock" class="property item">
+    <h3 class="name"><code>isReplaceableBlock</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+            
+        
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Can a block replace this block when placed. For example long grass does</p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> false</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_isUpdatableBlock" class="property item">
+    <h3 class="name"><code>isUpdatableBlock</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+            
+        
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Should this block be updated every tick. If true the tickBlock method is called every tick</p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> false</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_onBlockAdded" class="property item">
+    <h3 class="name"><code>onBlockAdded</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+            
+        
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p><code>onBlockAdded(<a href="../classes/World.html" class="crosslink">World</a> world, <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> x, <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> y, <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> z)</code></p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> null</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_onBlockDestroyedByPlayer" class="property item">
+    <h3 class="name"><code>onBlockDestroyedByPlayer</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+            
+        
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p><code>onBlockDestroyedByPlayer(<a href="../classes/World.html" class="crosslink">World</a> world, <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> x, <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> y, <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> z, <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> metadata)</code></p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> null</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_onBlockPlaced" class="property item">
+    <h3 class="name"><code>onBlockPlaced</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+            
+        
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p><code>onBlockPlaced(<a href="../classes/World.html" class="crosslink">World</a> world, <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> x, <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> y, <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> z, <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> side)</code></p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> null</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_onBlockPlacedBy" class="property item">
+    <h3 class="name"><code>onBlockPlacedBy</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+            
+        
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p><code>onBlockPlacedBy(<a href="../classes/World.html" class="crosslink">World</a> world, <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> x, <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> y, <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> z, <a href="../classes/EntityPlayer.html" class="crosslink">EntityPlayer</a>
+entityplayer)</code></p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> null</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_onBlockRemoval" class="property item">
+    <h3 class="name"><code>onBlockRemoval</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+            
+        
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p><code>onBlockRemoval(<a href="../classes/World.html" class="crosslink">World</a> world, <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> x, <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> y, <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> z)</code></p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> null</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_onNeighborBlockChange" class="property item">
+    <h3 class="name"><code>onNeighborBlockChange</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+            
+        
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p><code>onNeighborBlockChange(<a href="../classes/World.html" class="crosslink">World</a> world, <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> x, <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> y, <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> z, <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> blockID)</code></p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> null</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_RenderType" class="property item">
+    <h3 class="name"><code>RenderType</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+            
+        
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Set the render type for this block. Render types: 0 - Standard block 1 - Pieced block 2 - Flower
+block 3 - Liquid block 4 - Carpet block 5 - Torch block 6 - Custom model block (Not supported) 7 -
+Stair block 8 - Fence block 9 - Bed block</p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> 1</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_shouldSideBeRendered" class="property item">
+    <h3 class="name"><code>shouldSideBeRendered</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+            
+        
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p><code><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a> shouldSideBeRendered(<a href="../classes/World.html" class="crosslink">World</a> world, <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> x, <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> y, <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> z, <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> side)</code></p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> [See Example Below]</p>
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <p> <code>shouldSideBeRendered: function(world, x, y, z, side) { return !<a href="../classes/World.html" class="crosslink">world</a>.<a href="../classes/World.html#method_isBlockNormal" class="crosslink">isBlockNormal</a>(x, y, z) }</code></p>
+
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="property_tickBlock" class="property item">
+    <h3 class="name"><code>tickBlock</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+            
+        
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p><code>tickBlock(<a href="../classes/World.html" class="crosslink">World</a> world, <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> x, <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> y, <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> z)</code></p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+            </div>
+        
+
+        
+
+        
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

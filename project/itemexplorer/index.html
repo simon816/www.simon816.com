@@ -1,0 +1,17 @@
+{% assign title = "Minecraft Item Explorer" %}
+{% assign path = "project/itemexplorer/" %}
+
+{% capture content %}
+        <h3>Minecraft Item Explorer</h3>
+        <p>Designed to be a clone of <a href="http://www.57digital.co.uk/portfolio/minecraft-explorer-pro/">
+            Minecraft Explorer</a>, this app was my first "non-trivial" application written in JavaScript.</p>
+        <p>The original goal was to bring Minecraft Explorer to my phone, a Symbian^1 device, using
+        <a href="https://en.wikipedia.org/wiki/Web_Runtime_(WRT)">Web Runtime (WRT)</a> and the
+        <a href="https://www.w3.org/TR/widgets-land/">Widget</a> API.</p>
+        <p>I realized that in order to update the data, modifying JSON files was not ideal, so I made an admin panel with
+        the <a href="https://indeziner.com/resources/freebies/free-css-templates/free-htmlcss-jquery-admin-panel-inadmin/">
+            INADMIN</a> design. The panel would read and write to a JSON file, originally implemented as a python server.
+        </p>
+{% endcapture %}
+
+{% include "_template/common" %}

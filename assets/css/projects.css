@@ -1,0 +1,20 @@
+.project-title {
+    display: inline-block;
+    width: 30%;
+}
+
+.project-title h2 {
+    margin-top: 0px;
+    margin-bottom: 5px;
+}
+
+.project-desc {
+    display: inline-block;
+    width: 60%;
+    vertical-align: top;
+}
+
+.project {
+    border-bottom: 1px solid black;
+    min-height: 100px;
+}

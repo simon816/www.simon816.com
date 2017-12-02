@@ -1,0 +1,40 @@
+{% assign path = "project/comcraftml/" | append: path %}
+{% capture head %}
+    <link rel="stylesheet" type="text/css" media="screen" href="{{assets}}css/comcraftml.css">
+    {{ head }}
+{% endcapture %}
+
+{% capture content %}
+        <div class="sidebar">
+            <ul>
+                <li>
+                    <a href="{{root}}project/comcraftml/">ModLoader Home</a>
+                </li>
+                <li>
+                    <a href="{{root}}project/comcraftml/downloads">Downloads</a>
+                </li>
+                <li>
+                    <a href="{{root}}project/comcraftml/mods">Mods</a>
+                </li>
+                <li>
+                    <a href="https://github.com/simon816/ComcraftModLoader/wiki">Wiki</a>
+                </li>
+                <li>
+                    <a href="https://github.com/simon816/ComcraftModLoader/">Source Code</a>
+                </li>
+                <li>
+                    <a href="{{root}}project/comcraftml/doc">API Documentation</a>
+                </li>
+            </ul>
+            </div>
+            <div class="content-column">
+            <div style="padding:5px;background-color:pink;margin:5px;text-align:center">
+                <h3 style="margin:0px">NOTICE: Comcraft Mod Loader is no longer being developed.</h3>
+                However if you discover a critical bug please report it to the
+                <a href="https://github.com/simon816/ComcraftModLoader/issues">Issue Tracker</a>
+            </div>
+            {{ content }}
+        </div>
+{% endcapture %}
+
+{% include "_template/common" %}

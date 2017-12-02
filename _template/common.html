@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Description" />
+    <link rel="canonical" href="{{ host }}{{ root }}{{ path }}">
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ assets }}css/main.css">
+    {{ head }}
+
+    <title>{{ title }}</title>
+
+</head>
+
+<body>
+
+    <header>
+        <nav class="content-region">
+            <a href="{{root}}">Simon816</a>
+            <a href="{{root}}contact/">Contact</a>
+            <a href="{{root}}projects/">Projects</a>
+            <a href="{{root}}about/">About</a>
+            <a href="{{root}}blog/">Blog</a>
+        </nav>
+    </header>
+
+    <hr>
+
+    <div id="content" class="content-region">
+        {{ content }}
+    </div>
+
+    <hr>
+
+    <footer>
+        <ul class="content-region" id="contact-list">
+            <li>
+                <a href="mailto:me@simon816.com">me@simon816.com</a>
+            </li>
+            <li>
+                <a href="https://github.com/simon816">GitHub</a>
+            </li>
+            <li>
+                <a href="https://twitter.com/simon8162">Twitter</a>
+            </li>
+        </ul>
+    </footer>
+
+</body>
+
+</html>

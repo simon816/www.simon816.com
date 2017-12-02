@@ -1,0 +1,40 @@
+{% assign title = "About" %}
+{% assign path = "about/" %}
+
+{% capture content %}
+
+        <h2>About this website</h2>
+
+        <p>The source code for this website is available <a href="https://github.com/simon816/www.simon816.com">on GitHub</a>.</p>
+        <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+            <img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>
+            <br />Licensed under <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+                Creative Commons Attribution-ShareAlike 4.0 International</a>.
+
+        <h3>History</h3>
+        <p>
+            My first website, simon816.webs.com was set up late 2009. Some of the early content included a guestbook,
+            re-uploads of .swf games (games websites were blocked at school), re-uploads of MP3's that I got from WAP
+            sites (who remembers those?), website search, downloadable toolbar, background select, contact form.<br>
+            There was also lots of random scripts and experiments from when I was learning HTML and JavaScript.<br>
+            Some of my experiments included: An HTML editor, a popup that spawned more popups, an IP location tracker,
+            A login form to a members area, a clone of
+            <a href="https://www.huffingtonpost.com/2009/11/25/googlegooglegooglegooglec_n_370588.html"> Google x4</a>.
+            <br>Oh, and the font was (unironically) luminous green Comic Sans.<br><br>
+            Then, I started to learn PHP, and redesigned the website (around 2012). I created a "Panel API" which was a
+            simple PHP class that generated divs with various properties. I included some of the old content that I made,
+            but recreated some things such as a proper login/registration system with MySQL (and even used SHA512 with salt!).
+            I also created a PHP proxy, to get around restrictions at school.<br><br>
+            The site got more and more stuff; I was also using it to share files with people. Many more technical things
+            were added, such as an admin interface for me to read log files and manage user profiles. It also became home
+            to the Comcraft Mod Loader pages.<br><br>
+            The refactor started late 2015, where I re-designed the site from scratch, and cut out many old experiments
+            to focus on what was actually worthwhile. I focused mostly on projects that I've done/been a part of. I was
+            supposed to continue working on it until I was happy with the result but it was just left alone.<br><br>
+            Now, as I write this in late 2017, I am doing this the right way now. My focus remains on the things that I
+            have done, but this time I will finish the job. My domain, simon816.com, will be the home for everything that
+            I create, past/present/future.
+        </p>
+{% endcapture %}
+
+{% include "_template/common" %}

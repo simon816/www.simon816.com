@@ -1,0 +1,59 @@
+body {
+    background: #f5f5f5;
+    color: #333;
+    font-family: "Helvetica", Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    padding: 0px;
+    margin: 0px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+header {
+    position: relative;
+}
+
+nav {
+    line-height: 45px;
+    font-size: 20px;
+}
+
+nav a {
+    margin: 0px 5px;
+}
+
+.content-region {
+    max-width: 80%;
+    margin: auto;
+}
+
+#content {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding-left: 10px;
+}
+
+#contact-list {
+    padding: 0px;
+    margin-bottom: 0.5em;
+}
+
+#contact-list li {
+    display: inline;
+}
+
+#contact-list li:before {
+    content: "|";
+    margin: 0px 5px;
+}
+
+#contact-list li:first-child:before {
+    content: "";
+}

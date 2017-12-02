@@ -1,0 +1,74 @@
+{% assign title = "PyS60 Projects" %}
+{% assign path = "project/pys60/" %}
+
+{% capture head %}
+    <style type="text/css">
+        .pane {
+            display: inline-block;
+            max-width: 45%;
+            vertical-align: top;
+        }
+    </style>
+{% endcapture %}
+
+{% capture content %}
+        <p style="text-align:center">
+            <strong>All Source code available on <a href="https://github.com/simon816/PyS60-Projects">GitHub</a></strong>
+        </p>
+        <div class="pane">
+            <h3>Summary of my APIs</h3>
+            <ul>
+                <li>
+                    <h4>DiffReader.py</h4>Reads git diff files and displays them using text.py API</li>
+                <li>
+                    <h4>Parser.py</h4>A simple, quick and easy syntax parser
+                    <ul>
+                        <li>JSParser.py</li>
+                        <li>PHPParser.py</li>
+                    </ul>
+                </li>
+                <li>
+                    <h4>encypher.py</h4>Simple encryption, confusing algorithm converts things like HelloWorld to obpzjblgnz</li>
+                <li>
+                    <h4>eventhandler.py</h4>Easy to use event queueing that can handle 2 requests being sent at the same time</li>
+                <li>
+                    <h4>fileftp.py</h4>Based off ftplib, provides similar methods to an ftp server but for local files</li>
+                <li>
+                    <h4>icon.py</h4>A better icon handler class for appuifw.Icon</li>
+                <li>
+                    <h4>tabs.py</h4>A class for appuifw tab handling</li>
+                <li>
+                    <h4>text.py</h4>A really useful set of functions to provide advanced support to the appuifw.Text module
+                    <ul>
+                        <li>ExtendedEditor.py
+                            <ul>
+                                <li>SyntaxHighlighter.py</li>
+                            </ul>
+                        </li>
+                        <li>console.py - (ArgumentParser.py)</li>
+                    </ul>
+                </li>
+                <li>
+                    <h4>timer.py</h4>Really basic e32.ao_sleep handler</li>
+                <li>
+                    <h4>util.py</h4>Set of usefull utilities<br>util.select - File/Direcory selector with optional
+                    white/blacklist extension filters<br>util.mkdir - takes a list of direcories an makes them<br>
+                    util.db - advanced e32dbm manager<br>util.submenu - easily create submenus in appuifw.app.menu</li>
+            </ul>
+        </div>
+        <div class="pane">
+            <h3>Summary of my Projects</h3>
+            <ul>
+                <li>
+                    <h4>FileManager</h4>Advanced file manager for both local and ftp files</li>
+                <li>
+                    <h4>GithubMobile</h4>There is a lack for a Github client on Symbian, so i made one. Uses the GitHub API but I began to make it more like a real scm-git client</li>
+                <li>
+                    <h4>MHTML Reader</h4>This is more of an API but is designed specifically to read Opera Mobile Saved Pages</li>
+                <li>
+                    <h4>cURL Console</h4>Based on my console.py API, provides a <a href="http://curl.haxx.se">curl</a> console to S60</li>
+            </ul>
+        </div>
+{% endcapture %}
+
+{% include "_template/common" %}

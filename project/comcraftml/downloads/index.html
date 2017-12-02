@@ -1,0 +1,22 @@
+{% assign title = "Comcraft Mod Loader Downloads" %}
+{% assign path = "downloads/" %}
+
+{% capture content %}
+            <h2>Comcraft Mod Loader</h2>
+            <h3 class="download-link">
+            <a href="https://github.com/simon816/ComcraftModLoader/releases/latest">Download ComcraftML.jar</a></h3>
+            Version: 0.6<br>Date: Sat, 05 Apr 2014
+            <h4><a href="https://github.com/simon816/ComcraftModLoader/issues">Report issues/bugs, suggestions here</a></h4>
+            <h2>Comcraft Mod Loader Server (PC ONLY)</h2>
+            NB: You must have JRE 7.
+            <h3 class="download-link"><a href="{{files}}comcraftml/ComcraftServer-0.2.jar">Download ComcraftServer.jar</a></h3>
+            Version: 0.2<br>Date: Sat, 05 Apr 2014
+            <p>Update to ComcraftML 0.6 new protocol.<br>Logging to server.log<br>Improved stop, save and disconnect reliability.</p>
+            <h2>Comcraft Mod Loader IDE Releases (PC ONLY)</h2>
+            NB: You must have JRE 7.
+            <h3 class="download-link"><a href="{{files}}comcraftml/ComcraftML-IDE-0.5.2.jar">Download ComcraftML-IDE.jar</a></h3>
+            Version: 0.5.2<br>Date: Thur, 13 Mar 2014 15:45
+            <p>Update to Comcraft Mod Loader API Level 6</p>
+{% endcapture %}
+
+{% include "_template/comcraftml" %}

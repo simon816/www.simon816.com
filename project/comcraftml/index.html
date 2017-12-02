@@ -1,0 +1,24 @@
+{% assign title = "Comcraft Mod Loader" %}
+{% assign path = "" %}
+
+{% capture content %}
+            <p>
+                Comcraft Mod Loader enables mods to be loaded into the game. Mods are downloaded as <code>.mod</code>
+                files and placed into the <code>comcraft/mods</code> directory on your phone.<br> Multiple mods can be
+                installed at once and you don't need to re-install the game at any time (except for mod loader updates).<br>
+                <br> Mods are developed using a special IDE, you can grab a copy from the <a href="downloads/">downloads page</a>.
+                <br> Please see the wiki (link above) for information on developing mods.<br>
+                <br> You can read the blog post on the Comcraft blog 
+                <a href="http://comcraft-game.blogspot.co.uk/2013/10/comcraft-mod-loader.html">Here</a>
+            </p>
+
+            <p>
+                <h4>Notice</h4>
+                In later versions of comcraft (from 0.5 onwards), old low-end devices will struggle to run the game as 
+                multiplayer becomes available. Even if you do not intend on playing multiplayer, there will be notable
+                performance drops mainly from RAM purely because a whole chunk of code is loaded even if not used. If many 
+                people have problems with this I will try to make two streams - one with multiplayer and one without.
+            </p>
+{% endcapture %}
+
+{% include "_template/comcraftml" %}

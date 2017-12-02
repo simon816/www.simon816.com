@@ -1,0 +1,39 @@
+.sidebar {
+    display: inline-block;
+    text-align: right;
+    padding-right: 20px;
+    border-right: 1px solid #555;
+    vertical-align: top;
+    width: 150px;
+    font-weight: bold;
+    margin-left: -50px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0px;
+}
+
+.sidebar ul li {
+    border-bottom: 1px solid #555;
+    padding: 5px 0px;
+}
+
+.sidebar ul li:last-child {
+    border-bottom: none;
+}
+
+.content-column {
+    display: inline-block;
+    vertical-align: top;
+    width: 75%;
+    margin-left: 20px;
+}
+
+.download-link {
+    margin: 3px;
+}
+
+.mod-name {
+    margin: 0px;
+}
