@@ -1,0 +1,70 @@
+body {
+    font-family: "Helvetica";
+}
+#editor {
+    position: absolute;
+    top: 40px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+#toolbar {
+    top: 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 40px;
+    background: #141414;
+    padding-left: 30px;
+}
+.toolbar-item {
+    height: 100%;
+    display: inline-block;
+    line-height: 30px;
+    margin: 0px 5px;
+    background: gray;
+    padding: 5px 10px;
+}
+.toolbar-item:hover {
+    background: lightgray;
+    cursor: pointer;
+}
+.toolbar-item:hover .toolbar-item-label {
+    color: black;
+}
+.toolbar-item-label {
+    color: white;
+    font-size: 14pt;
+}
+.status-bar {
+    height: 100%;
+    line-height: 30px;
+    padding: 5px 10px;
+    margin-left: 100px;
+    display: inline;
+}
+#status-bar {
+    color: orange;
+}
+
+#status-bar a {
+    color: white;
+    margin-left: 5px;
+}
+
+#option-panel {
+    position: absolute;
+    top: 40px;
+    right: 0;
+    bottom: 0;
+    background: rgb(35, 46, 74);
+    color: white;
+    padding: 0px 10px;
+}
+.option {
+    padding: 5px 0px;
+}
+.option input.right {
+    float: right;
+    margin-left: 10px;
+}
