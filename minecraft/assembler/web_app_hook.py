@@ -49,7 +49,7 @@ def do_assemble_0(data):
     place = place or '~1,~,~1'
     enable_sync = bool(args['enable-sync']) if 'enable-sync' in args else False
     asm_args = args['args'] if 'args' in args else {}
-    spawn_loc = args['spawn_loc'] if 'spawn_loc' in args else '~ ~2 ~'
+    spawn_loc = args['spawn-location'] if 'spawn-location' in args else '~ ~2 ~'
 
     A = Assembler
     if lang == 'c':
