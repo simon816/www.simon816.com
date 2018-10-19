@@ -36,23 +36,15 @@ def handle_assemble(data):
 def post_process(output):
     setup = '/' + output['setup']
     cleanup = '/' + output['cleanup']
-    functions = output['functions']
+    datapack = output['datapack']
     jump = output['jump']
     namespace = output['namespace']
     if jump:
         jump = '/' + jump
 
-    from io import BytesIO
-    from zipfile import ZipFile, ZIP_DEFLATED
     from base64 import encodestring as b64_encode
-    zipio = BytesIO()
-    with ZipFile(zipio, 'w', compression=ZIP_DEFLATED) as zip:
-        for fname, commands in functions:
-            zip.writestr('%s.mcfunction' % fname,
-                         '\n'.join(commands).encode('utf8'))
-
     return {
-        'zip': b64_encode(zipio.getbuffer()).decode('utf8'),
+        'zip': b64_encode(datapack).decode('utf8'),
         'setup': setup,
         'cleanup': cleanup,
         'jump': jump,

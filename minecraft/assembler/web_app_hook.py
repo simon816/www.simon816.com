@@ -2,17 +2,27 @@ from assembler import Assembler
 from session import Session
 from placer import Rel
 
+from datapack import DataPackWriter
+import zipfile
+from io import BytesIO
+
 from compiler.asm_extensions import CompilerSession, ExtendedAssembler
-from compiler.compiler import Compiler, Preprocessor
+from compiler.compiler import Compiler
+from compiler.preprocessor import Preprocessor
 from compiler.lexer import Lexer
 from compiler.parser_ import Parser
 
-class FakeWriter:
-    def __init__(self, output):
-        self.output = output
+class VirtualDataPackWriter(DataPackWriter):
 
-    def write_function(self, name_parts, command_list):
-        self.output.append((name_parts, command_list))
+    def __init__(self, name):
+        super().__init__(None, name, True)
+        self.virtual = BytesIO()
+
+    def open(self):
+        self.zip = zipfile.ZipFile(self.virtual, 'w', zipfile.ZIP_DEFLATED)
+
+    def output(self):
+        return self.virtual.getvalue()
 
 def do_assemble(data):
     try:
@@ -21,11 +31,11 @@ def do_assemble(data):
         return {'error': e.__class__.__name__ + ': ' + ' '.join(map(str, e.args))}
 
 def do_compile(code):
-    compiler = Compiler()
+    compiler = Compiler('string')
     pre = Preprocessor(code, 'input.c')
     code = pre.transform()
     parser = Parser(Lexer(code))
-    return compiler.compile_program(parser.parse_program())
+    return compiler.compile(parser.parse_program())
 
 def do_assemble_0(data):
     code = data['code']
@@ -39,6 +49,7 @@ def do_assemble_0(data):
     place = place or '~1,~,~1'
     enable_sync = bool(args['enable-sync']) if 'enable-sync' in args else False
     asm_args = args['args'] if 'args' in args else {}
+    spawn_loc = args['spawn_loc'] if 'spawn_loc' in args else '~ ~2 ~'
 
     A = Assembler
     if lang == 'c':
@@ -53,9 +64,8 @@ def do_assemble_0(data):
 
     x, y, z = map(parse_pos, place.split(',', 3))
 
-    output = []
-    writer = FakeWriter(output)
-
+    writer = VirtualDataPackWriter(namespace)
+    writer.open()
     if lang == 'c':
         session = CompilerSession((x, y, z), writer, namespace,
                                   stack_size=stack_size, args=asm_args)
@@ -64,16 +74,16 @@ def do_assemble_0(data):
                           stack_size=stack_size,args=asm_args)
 
     assembler.write_to_session(session)
-    setup, cleanup = session.create_up_down_functions()
+    setup, cleanup = session.create_up_down_functions(spawn_loc)
+    writer.close()
 
     jump_cmd = assembler.get_sub_jump_command(jump).resolve(session.scope) if jump else None
 
     return {
         'setup': setup,
         'cleanup': cleanup,
-        'functions': output,
+        'datapack': writer.output(),
         'jump': jump_cmd,
         'namespace': namespace
     }
-
 
