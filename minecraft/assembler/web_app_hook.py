@@ -9,7 +9,6 @@ from io import BytesIO
 from compiler.asm_extensions import CompilerSession, ExtendedAssembler
 from compiler.compiler import Compiler
 from compiler.preprocessor import Preprocessor
-from compiler.lexer import Lexer
 from compiler.parser_ import Parser
 
 class VirtualDataPackWriter(DataPackWriter):
@@ -34,8 +33,8 @@ def do_compile(code):
     compiler = Compiler('string')
     pre = Preprocessor(code, 'input.c')
     code = pre.transform()
-    parser = Parser(Lexer(code))
-    return compiler.compile(parser.parse_program())
+    parser = Parser(compiler.get_type_names())
+    return compiler.compile(parser.parse_program(code))
 
 def do_assemble_0(data):
     code = data['code']
