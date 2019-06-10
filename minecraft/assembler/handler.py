@@ -2,7 +2,7 @@ from flask import Flask
 from flask import json
 from flask import request
 
-from web_app_hook import do_assemble
+from web_app_hook import do_build
 
 app = Flask(__name__)
 
@@ -20,13 +20,7 @@ def handle_assemble(data):
     if 'code' not in data or 'args' not in data:
         return {'error': 'Missing data'}
     try:
-        if 'stack-size' in data['args']:
-            data['args']['stack-size'] = int(data['args']['stack-size'])
-        if 'enable-sync' in data['args']:
-            data['args']['enable-sync'] = bool(data['args']['enable-sync'])
-        if 'args' in data['args'] and not data['args']['args']:
-            del data['args']['args']
-        output = do_assemble(data)
+        output = do_build(data)
         if 'error' in output:
             return output
         return post_process(output)
@@ -34,8 +28,9 @@ def handle_assemble(data):
         raise Exception('An internal error occurred while running the assembler')
 
 def post_process(output):
-    setup = '/' + output['setup']
-    cleanup = '/' + output['cleanup']
+    cleanup = output['cleanup']
+    if cleanup:
+        cleanup = '/' + cleanup
     datapack = output['datapack']
     jump = output['jump']
     namespace = output['namespace']
@@ -45,7 +40,6 @@ def post_process(output):
     from base64 import encodestring as b64_encode
     return {
         'zip': b64_encode(datapack).decode('utf8'),
-        'setup': setup,
         'cleanup': cleanup,
         'jump': jump,
         'namespace': namespace

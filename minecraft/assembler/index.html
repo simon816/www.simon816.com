@@ -2,6 +2,7 @@
 <html>
 
     <head>
+        <meta charset="UTF-8">
         <title>Command Block Assembly Demo</title>
         <link rel="stylesheet" type="text/css" href="style.css">
         <script src="ajax.js"></script>
@@ -12,7 +13,12 @@
 
     <div id="toolbar">
         <div class="toolbar-item">
-            <span class="toolbar-item-label">Language:</span><select id="lang-select"><option value="asm">Assembly</option><option value="c">C</option></select>
+            <span class="toolbar-item-label">Language:</span>
+            <select id="lang-select">
+                <option value="asm">Assembly</option>
+                <option value="c">C</option>
+                <option value="ir">Command IR</option>
+            </select>
         </div>
         <div class="toolbar-item">
             <span class="toolbar-item-label" id="build-button">Build</span>
@@ -29,27 +35,19 @@
     <div id="option-panel">
         <h3 style="margin-left: 20px">Options</h3>
         <div class="option">
-            <label for="arg-namespace">Namespace</label><input type="text" id="arg-namespace" value="asm_generated" class="right">
-        </div>
-        <div class="option">
-            <label for="arg-stack-size">Stack Size</label><input type="number" id="arg-stack-size" value="8" class="right">
+            <label for="arg-namespace">Namespace</label><input type="text" id="arg-namespace" value="generated" class="right">
         </div>
         <div class="option">
             <label for="arg-jump">Output Jump</label><input type="text" id="arg-jump" value="" class="right">
         </div>
         <div class="option">
-            <label for="arg-place-location">Place Location</label><input type="text" id="arg-place-location" value="~1,~,~1" class="right">
+            <label for="arg-place-location">Place Location</label><input type="text" id="arg-place-location" value="0,56,0" class="right">
         </div>
         <div class="option">
             <label for="arg-spawn-location">Spawn Location</label><input type="text" id="arg-spawn-location" value="~ ~2 ~" class="right">
         </div>
         <div class="option">
-            <label for="arg-enable-sync">Enable SYNC</label><input type="checkbox" id="arg-enable-sync" value="" class="right">
-        </div>
-                <br>
-        <label>Arguments:</label>
-        <div class="option" id="arg-args">
-            <div><input type="text"><input type="text"></div>
+            <label for="arg-gen-cleanup">Generate Cleanup Function</label><input type="checkbox" id="arg-gen-cleanup" value="" class="right">
         </div>
     </div>
 
