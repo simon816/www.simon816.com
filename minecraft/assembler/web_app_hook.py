@@ -25,7 +25,7 @@ def do_build_0(data):
     if not files:
         return {'error': 'No files to compile'}
     with tempfile.TemporaryDirectory() as tmpdir:
-        out = os.path.join(tmpdir, 'out%d' % random.randint(0, 1<<32))
+        out = os.path.join(tmpdir, 'out%d.zip' % random.randint(0, 1<<32))
         arglist = ['-o', out]
         for name, content in files.items():
             realpath = os.path.normpath(os.path.join(tmpdir, name))
@@ -44,11 +44,12 @@ def do_build_0(data):
         mcc.cli.fatal = handle_fatal
         mcc.cli.run_with_args(args)
 
-        with open(out + '.zip', 'rb') as f:
+        with open(out, 'rb') as f:
             datapack = f.read()
 
         return {
             'cleanup': None, # TODO
+            'namespace': 'datapack', # TODO
             'datapack': datapack,
         }
 

@@ -37,6 +37,7 @@ def post_process(output):
     return {
         'zip': b64_encode(datapack).decode('utf8'),
         'cleanup': cleanup,
+        'namespace': output['namespace'],
     }
 
 application = app

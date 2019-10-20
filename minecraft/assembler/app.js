@@ -51,7 +51,7 @@
             +'    $counter += 1\n    $old_x = $x\n    $x = $y\n    $y += $old_x\n    rangebr $x, 0, NULL, :loop, :end\n\n    end:\n    ret\n}\n'
     };
 
-    var fibDpd = { name: 'fib.dpd', value: '[Datapack]\nnamespace = fib\nplace location = 0, 56, 0\nspawn location = ~, ~2, ~\n' };
+    var fibDpd = { name: 'fib.dpd', value: '[Datapack]\nnamespace = fib\nplace location = 0 56 0\nspawn location = ~ ~2 ~\n' };
     var examples = {
         'fib-asm': [ { name: 'fib.asm', value: sampleFibCode.asm }, fibDpd ],
         'fib-c': [ { name: 'fib.c', value: sampleFibCode.c }, fibDpd ],
@@ -181,7 +181,11 @@
 
         statusBar.textContent = 'Assembling...';
         statusBar.style.color = 'orange';
-        ajax.postJSON('.', {'files': files}, function(data) {
+        var fileArg =  {};
+        for (var filename in files) {
+            fileArg[filename] = files[filename].content;
+        }
+        ajax.postJSON('.', {'files': fileArg}, function(data) {
             if (data.error) {
                 statusBar.style.color = 'red';
                 statusBar.textContent = 'Error! ' + data.error;
