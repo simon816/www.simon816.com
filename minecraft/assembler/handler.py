@@ -17,7 +17,7 @@ def serve_assembler():
         return '{"error": "Bad Request"}', resp_headers
 
 def handle_assemble(data):
-    if 'code' not in data or 'args' not in data:
+    if 'files' not in data:
         return {'error': 'Missing data'}
     try:
         output = do_build(data)
@@ -25,24 +25,18 @@ def handle_assemble(data):
             return output
         return post_process(output)
     except Exception as e:
-        raise Exception('An internal error occurred while running the assembler')
+        raise Exception('An internal error occurred while running the compiler')
 
 def post_process(output):
     cleanup = output['cleanup']
     if cleanup:
         cleanup = '/' + cleanup
     datapack = output['datapack']
-    jump = output['jump']
-    namespace = output['namespace']
-    if jump:
-        jump = '/' + jump
 
     from base64 import encodestring as b64_encode
     return {
         'zip': b64_encode(datapack).decode('utf8'),
         'cleanup': cleanup,
-        'jump': jump,
-        'namespace': namespace
     }
 
 application = app

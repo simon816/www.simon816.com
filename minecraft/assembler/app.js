@@ -2,10 +2,42 @@
 
 ;(function(document){
 
-    var statusBar;
-    var lang = 'asm';
 
-    var sampleCode = {
+    var editor = ace.edit("editor");
+
+    editor.setTheme("ace/theme/chrome");
+
+    var statusBar;
+    var fileList;
+    var example = 'fib-c';
+
+    var files = {};
+    var fileOrdering = [];
+
+    var activeFilename = null;
+
+    function fixPanelWidth() {
+        document.getElementById('editor').style.left = document.getElementById('file-panel').offsetWidth + 'px';
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('build-button').addEventListener('click', doBuild);
+
+        statusBar = document.getElementById('status-bar');
+        statusBar.textContent = 'Ready';
+        statusBar.style.color = '#42ff42';
+
+        fileList = document.getElementById('file-list');
+
+        document.getElementById('eg-select').addEventListener('change', setExample);
+        document.getElementById('eg-select').value = example;
+
+        document.getElementById('new-file-btn').addEventListener('click', newFile);
+
+        resetSession();
+    });
+
+    var sampleFibCode = {
         asm: '.x 0x00\n.y 0x01\n.old_x 0x02\n.counter 0x03\n\nmain:\n    MOV #0, x\n    MOV #1, y\n    MOV #1, counter'
             +'\n    _loop:\n    PRINT "fib(", counter, ") = ", x\n    SYNC\n    ADD #1, counter\n    MOV x, old_x\n    '
             +'MOV y, x\n    ADD old_x, y\n    CMP #0, x\n    JGE _loop ; if not >=0 then x has overflowed',
@@ -19,25 +51,137 @@
             +'    $counter += 1\n    $old_x = $x\n    $x = $y\n    $y += $old_x\n    rangebr $x, 0, NULL, :loop, :end\n\n    end:\n    ret\n}\n'
     };
 
-    var highlight = {
-        asm: 'ace/mode/assembly_x86',
-        c: 'ace/mode/c_cpp',
-        ir: 'ace/mode/text'
+    var fibDpd = { name: 'fib.dpd', value: '[Datapack]\nnamespace = fib\nplace location = 0, 56, 0\nspawn location = ~, ~2, ~\n' };
+    var examples = {
+        'fib-asm': [ { name: 'fib.asm', value: sampleFibCode.asm }, fibDpd ],
+        'fib-c': [ { name: 'fib.c', value: sampleFibCode.c }, fibDpd ],
+        'fib-ir': [ { name: 'fib.ir', value: sampleFibCode.ir }, fibDpd ],
     };
+
+    function setExample(event) {
+        example = event.target.value;
+        if (example !== 'none') {
+            resetSession();
+        }
+    }
+
+    function resetSession() {
+        fileOrdering = [];
+        activeFilename = null;
+        for (var oldFile in files) {
+            fileList.removeChild(files[oldFile].domNode);
+        }
+        files = {};
+        setFileActive(-1);
+        if (example in examples) {
+            var eg = examples[example];
+            for (var i = 0; i < eg.length; i++) {
+                var file = eg[i];
+                addFile(file.name, file.value);
+            }
+            setFileActive(0);
+        }
+    }
+
+    function newFile() {
+        var filename = prompt('New file name:');
+        if (!filename) {
+            return;
+        }
+        if (filename in files) {
+            alert(filename + ' already exists');
+            return;
+        }
+        addFile(filename, '');
+    }
+
+    function addFile(filename, content) {
+        fileOrdering.push(filename);
+        var fileNode = document.createElement('div');
+        files[filename] = { content: content, domNode: fileNode };
+        fileNode.classList.add('file');
+        var filenameNode = document.createElement('div');
+        filenameNode.classList.add('filename');
+        filenameNode.textContent = filename;
+        var deleteBtn = document.createElement('div');
+        deleteBtn.classList.add('delbtn');
+        deleteBtn.textContent = 'X';
+        deleteBtn.addEventListener('click', function (event) {
+            var idx = fileOrdering.indexOf(filename);
+            fileOrdering.splice(idx, 1);
+            fileList.removeChild(fileNode);
+            delete files[filename];
+            if (filename === activeFilename) {
+                activeFilename = null;
+                // idx is now the index of the next file
+                // Switch to next file unless there are no files after
+                // Choose previous file in that case
+                if (idx === fileOrdering.length) {
+                    idx -= 1;
+                }
+                setFileActive(idx);
+            }
+        });
+        fileNode.addEventListener('click', function(event) {
+            if (event.target === deleteBtn) {
+                return;
+            }
+            var idx = fileOrdering.indexOf(filename);
+            setFileActive(idx);
+        });
+        fileNode.appendChild(filenameNode);
+        fileNode.appendChild(deleteBtn);
+        fileList.appendChild(fileNode);
+        setFileActive(fileOrdering.length - 1);
+    }
+
+    function setFileActive(idx) {
+        if (activeFilename !== null) {
+            files[activeFilename].content = editor.getValue();
+            files[activeFilename].domNode.classList.remove('active');
+        }
+        fixPanelWidth();
+        if (idx < 0 || idx >= fileOrdering.length) {
+            editor.getSession().setMode('ace/mode/text');
+            setEditor('');
+            return;
+        }
+        var filename = fileOrdering[idx];
+        activeFilename = filename;
+        var fileInfo = files[filename];
+        fileInfo.domNode.classList.add('active');
+        editor.getSession().setMode(modeForFilename(filename));
+        setEditor(fileInfo.content);
+    }
+
+    function setEditor(value) {
+        editor.setValue(value);
+        editor.gotoLine(0);
+        editor.clearSelection();
+    }
+
+    function modeForFilename(filename) {
+        if (filename.endsWith('.asm')) {
+            return 'ace/mode/assembly_x86';
+        }
+        if (filename.endsWith('.c') || filename.endsWith('.cmdl')) {
+            return 'ace/mode/c_cpp';
+        }
+        if (filename.endsWith('.dpd')) {
+            return 'ace/mode/ini';
+        }
+        return 'ace/mode/text';
+    }
 
     function doBuild() {
 
-        var args = {};
-        var argNames = ['namespace', 'jump', 'place-location', 'spawn-location'];
-        for (var i = 0; i < argNames.length; i++) {
-            var arg = argNames[i];
-            args[arg] = document.getElementById('arg-' + arg).value;
+        if (activeFilename !== null) {
+            files[activeFilename].content = editor.getValue();
         }
-        args['gen-cleanup'] = document.getElementById('arg-gen-cleanup').checked;
 
         statusBar.textContent = 'Assembling...';
         statusBar.style.color = 'orange';
-        ajax.postJSON('.', {'code': editor.getValue(), 'args': args, 'lang': lang}, function(data) {
+        ajax.postJSON('.', {'files': files}, function(data) {
             if (data.error) {
                 statusBar.style.color = 'red';
                 statusBar.textContent = 'Error! ' + data.error;
@@ -63,46 +207,12 @@
                     });
                     statusBar.appendChild(cleanup);
                 }
-                if (data.jump) {
-                    var jump = document.createElement('a');
-                    jump.textContent = 'Jump command';
-                    jump.href = '#';
-                    jump.addEventListener('click', function(event) {
-                        event.preventDefault();
-                        prompt('Jump command', data.jump);
-                    });
-                    statusBar.appendChild(jump);
-                }
             }
         }, function(error) {
             statusBar.style.color = 'red';
             statusBar.textContent = 'Error! ' + error;
         });
     }
-
-    function changeLang(event) {
-        lang = event.target.value;
-        resetEditor();
-    }
-
-    function resetEditor() {
-        editor.getSession().setMode(highlight[lang]);
-        editor.setValue(sampleCode[lang]);
-        editor.gotoLine(0);
-        editor.clearSelection();
-    }
-
-    document.addEventListener('DOMContentLoaded', function () {
-        document.getElementById('build-button').addEventListener('click', doBuild);
-
-        statusBar = document.getElementById('status-bar');
-        statusBar.textContent = 'Ready';
-        statusBar.style.color = '#42ff42';
-
-        document.getElementById('lang-select').addEventListener('change', changeLang);
-        document.getElementById('lang-select').value = lang;
-        resetEditor();
-    });
 
     // https://stackoverflow.com/questions/16245767/creating-a-blob-from-a-base64-string-in-javascript
     function b64toBlob(b64Data, contentType, sliceSize) {

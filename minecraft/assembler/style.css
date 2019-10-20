@@ -1,6 +1,7 @@
 body {
     font-family: "Helvetica";
 }
+
 #editor {
     position: absolute;
     top: 40px;
@@ -8,6 +9,7 @@ body {
     bottom: 0;
     left: 0;
 }
+
 #toolbar {
     top: 0;
     position: absolute;
@@ -17,6 +19,7 @@ body {
     background: #141414;
     padding-left: 30px;
 }
+
 .toolbar-item {
     height: 100%;
     display: inline-block;
@@ -25,17 +28,21 @@ body {
     background: gray;
     padding: 5px 10px;
 }
+
 .toolbar-item:hover {
     background: lightgray;
     cursor: pointer;
 }
+
 .toolbar-item:hover .toolbar-item-label {
     color: black;
 }
+
 .toolbar-item-label {
     color: white;
     font-size: 14pt;
 }
+
 .status-bar {
     height: 100%;
     line-height: 30px;
@@ -43,6 +50,7 @@ body {
     margin-left: 100px;
     display: inline;
 }
+
 #status-bar {
     color: orange;
 }
@@ -52,19 +60,57 @@ body {
     margin-left: 5px;
 }
 
-#option-panel {
+#file-panel {
     position: absolute;
     top: 40px;
-    right: 0;
+    left: 0;
     bottom: 0;
     background: rgb(35, 46, 74);
     color: white;
-    padding: 0px 10px;
+    padding: 5px 10px 0px 10px;
+    min-width: 120px;
 }
-.option {
-    padding: 5px 0px;
+
+#file-list {
+    margin-top: 10px;
 }
-.option input.right {
+
+#new-file-btn {
+}
+
+.file {
+    font-family: monospace, monospace;
+    background-color: black;
+    margin: 3px 0px;
+}
+
+.file .filename {
+    padding: 3px;
+    display: inline-block;
+}
+
+.file:hover {
+    background-color: white;
+    color: black;
+    cursor: default;
+}
+
+.file .delbtn {
     float: right;
+    color: red;
+    padding: 3px;
+}
+
+.file .delbtn:hover {
+    font-weight: bold;
+    background-color: lightgrey;
+}
+
+.file.active {
     margin-left: 10px;
+    margin-right: -10px;
+}
+
+.file.active .filename {
+    font-weight: bold;
 }

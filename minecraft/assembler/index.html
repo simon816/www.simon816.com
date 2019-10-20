@@ -6,18 +6,18 @@
         <title>Command Block Assembly Demo</title>
         <link rel="stylesheet" type="text/css" href="style.css">
         <script src="ajax.js"></script>
-        <script src="app.js"></script>
     </head>
 
     <body>
 
     <div id="toolbar">
         <div class="toolbar-item">
-            <span class="toolbar-item-label">Language:</span>
-            <select id="lang-select">
-                <option value="asm">Assembly</option>
-                <option value="c">C</option>
-                <option value="ir">Command IR</option>
+            <span class="toolbar-item-label">Load Example</span>
+            <select id="eg-select">
+                <option value="none">-- Choose --</option>
+                <option value="fib-asm">Fibonacci Sequence ASM</option>
+                <option value="fib-c">Fibonacci Sequence C</option>
+                <option value="fib-ir">Fibonacci Sequence IR</option>
             </select>
         </div>
         <div class="toolbar-item">
@@ -31,34 +31,13 @@
         </a>
     </div>
 
-    <div id="editor"></div>
-    <div id="option-panel">
-        <h3 style="margin-left: 20px">Options</h3>
-        <div class="option">
-            <label for="arg-namespace">Namespace</label><input type="text" id="arg-namespace" value="generated" class="right">
-        </div>
-        <div class="option">
-            <label for="arg-jump">Output Jump</label><input type="text" id="arg-jump" value="" class="right">
-        </div>
-        <div class="option">
-            <label for="arg-place-location">Place Location</label><input type="text" id="arg-place-location" value="0,56,0" class="right">
-        </div>
-        <div class="option">
-            <label for="arg-spawn-location">Spawn Location</label><input type="text" id="arg-spawn-location" value="~ ~2 ~" class="right">
-        </div>
-        <div class="option">
-            <label for="arg-gen-cleanup">Generate Cleanup Function</label><input type="checkbox" id="arg-gen-cleanup" value="" class="right">
-        </div>
+    <div id="file-panel">
+        <div>New File <button id="new-file-btn">+</button></div>
+        <div id="file-list"></div>
     </div>
+    <div id="editor"></div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.9/ace.js" integrity="sha256-U//RSeH3TR3773Rk+1lAufJnRjEaG5LcdbvGV72kHEM=" crossorigin="anonymous"></script>
-    <script>
-        var editor = ace.edit("editor");
-        editor.setTheme("ace/theme/chrome");
-        document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('editor').style.right = document.getElementById('option-panel').offsetWidth + 'px';
-        });
-    </script>
-
+    <script src="app.js"></script>
     </body>
 </html>
