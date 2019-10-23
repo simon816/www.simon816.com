@@ -9,7 +9,7 @@
 
     var statusBar;
     var fileList;
-    var example = 'fib-c';
+    var example = 'fib-cbl';
 
     var files = {};
     var fileOrdering = [];
@@ -48,7 +48,10 @@
             +'        $old_x = define i32\n        $counter = define i32\n        extern\n    }\n\n    entry:\n    $x = 0\n    $y = 1\n    $counter = 1\n'
             +'    branch :loop\n\n    loop:\n    $msg = text\n    text_append $msg, "fib("\n    text_append $msg, $counter\n    text_append $msg, ") = "\n'
             +'    text_append $msg, $x\n    text_send $msg, $all_players\n    set_command_block :post_tick\n\n    post_tick:\n    clear_command_block\n'
-            +'    $counter += 1\n    $old_x = $x\n    $x = $y\n    $y += $old_x\n    rangebr $x, 0, NULL, :loop, :end\n\n    end:\n    ret\n}\n'
+            +'    $counter += 1\n    $old_x = $x\n    $x = $y\n    $y += $old_x\n    rangebr $x, 0, NULL, :loop, :end\n\n    end:\n    ret\n}\n',
+        cbl: 'include "Text"\ninclude "Game"\n\nint x;\nint y;\nint counter;\nint old_x;\n\nasync void main() {\n    x = 0;\n    y = 1;\n'
+            +'    counter = 1;\n    do {\n        Text t;\n        t << "fib(" << counter++ << ") = " << x;\n        t.send_to_all();\n'
+            +'        await Game.tick();\n        old_x = x;\n        x = y;\n        y += old_x;\n    } while(x >= 0);\n}\n'
     };
 
     var fibDpd = { name: 'fib.dpd', value: '[Datapack]\nnamespace = fib\nplace location = 0 56 0\nspawn location = ~ ~2 ~\n' };
@@ -56,6 +59,7 @@
         'fib-asm': [ { name: 'fib.asm', value: sampleFibCode.asm }, fibDpd ],
         'fib-c': [ { name: 'fib.c', value: sampleFibCode.c }, fibDpd ],
         'fib-ir': [ { name: 'fib.ir', value: sampleFibCode.ir }, fibDpd ],
+        'fib-cbl': [ { name: 'fib.cmdl', value: sampleFibCode.cbl }, fibDpd ],
     };
 
     function setExample(event) {
@@ -179,7 +183,7 @@
             files[activeFilename].content = editor.getValue();
         }
 
-        statusBar.textContent = 'Assembling...';
+        statusBar.textContent = 'Compiling...';
         statusBar.style.color = 'orange';
         var fileArg =  {};
         for (var filename in files) {
