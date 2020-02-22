@@ -1,3 +1,5 @@
+#!/bin/bash
+
 builddir="_build"
 
 rm -rf $builddir
