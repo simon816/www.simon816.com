@@ -33,7 +33,7 @@ def post_process(output):
         cleanup = '/' + cleanup
     datapack = output['datapack']
 
-    from base64 import encodestring as b64_encode
+    from base64 import encodebytes as b64_encode
     return {
         'zip': b64_encode(datapack).decode('utf8'),
         'cleanup': cleanup,

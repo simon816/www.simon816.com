@@ -5,4 +5,4 @@ then
 else
     yum install -y ruby
 fi
-gem install liquid -v 5.3.0
+gem install liquid

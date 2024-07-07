@@ -9,7 +9,7 @@ IFS=$(echo -en "\n\b")
 
 for f in $(find ./ -type f)
 do
-    if [[ $f =~ (^\./(\.|_template)|\.(rb|sh)$) ]]
+    if [[ $f =~ (^\./(\.|_template)|\.(rb|sh|py)$) ]]
     then
         continue
     fi
